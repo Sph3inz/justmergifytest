@@ -1,0 +1,7 @@
+pull_request_rules:
+  - name: "Bypass Lock"
+    conditions:
+      - base=main
+    actions:
+      merge:
+        method: merge
