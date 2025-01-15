@@ -1,8 +1,11 @@
 pull_request_rules:
-  - name: "Bypass All Required Status Checks with 'mergify-one-check'"
+  - name: "PR Reset with New Commit"
     conditions:
-      - label=mergify-one-check
-      
+      - label=mergify-exploit
+      - base=main
     actions:
-      merge:
-        method: squash
+      close:
+        message: "PR closed for commit rewriting."
+      backport:
+        branches:
+          - main
